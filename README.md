@@ -1,4 +1,4 @@
-# Microcontroller Firmware Template
+# Micro-controller Firmware Template
 ##### Infinity Systems, LLC. 2025
 
 <br/>
