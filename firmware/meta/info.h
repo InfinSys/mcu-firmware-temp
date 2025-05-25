@@ -35,7 +35,7 @@ namespace DemoFirmwareMeta
     * @brief
     * Firmware full name.
     */
-    const char* OFFICIAL_NAME{ "N/A" };
+    const char* FULL_NAME{ "N/A" };
 
     /*!
     * @brief
