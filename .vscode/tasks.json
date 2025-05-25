@@ -1,0 +1,47 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    
+    "version": "2.0.0",
+    "tasks": [
+
+        // Firmware unit tests configuration task
+        {
+            "label": "GTest: Configure (Windows)",
+            "type": "shell",
+            "command": "cmake",
+            "args": ["--preset", "win32-x64-Debug"],
+            "options": {
+                "cwd": "${workspaceFolder}/tests/host/unit"
+            },
+            "problemMatcher": ["$msCompile", "$gcc"],
+            "group": "build"
+        },
+
+        // Firmware unit tests build task
+        {
+            "label": "GTest: Build (Windows)",
+            "type": "shell",
+            "command": "cmake",
+            "args": ["--build", "build/win32-x64-Debug"],
+            "options": {
+                "cwd": "${workspaceFolder}/tests/host/unit"
+            },
+            "problemMatcher": ["$msCompile", "$gcc"],
+            "group": "build",
+            "dependsOn": ["GTest: Configure (Windows)"]
+        },
+
+        // Firmware unit tests run task
+        {
+            "label": "GTest: Run (Windows)",
+            "type": "shell",
+            "command": "${workspaceFolder}/tests/host/unit/build/win32-x64-Debug/FirmwareUnitTests.exe",
+            "args": [],
+            "problemMatcher": [],
+            "group": "test",
+            "dependsOn": ["GTest: Build (Windows)"]
+        },
+        
+    ]
+}
