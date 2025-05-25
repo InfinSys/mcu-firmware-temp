@@ -35,13 +35,13 @@ namespace DemoFirmwareMeta
     * @brief
     * Firmware full name.
     */
-    const char* OFFICIAL_NAME{ "Demo Firmware" };
+    const char* OFFICIAL_NAME{ "N/A" };
 
     /*!
     * @brief
     * Firmware shortend name.
     */
-    const char* SHORT_NAME{ "Demo" };
+    const char* SHORT_NAME{ "N/A" };
 
 }
 
