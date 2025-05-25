@@ -25,21 +25,29 @@ set(LOCAL_PROJECT_SCOPE "DEMO")
 
 
 set(UNIT_TESTING OFF)
+set(BENCHMARKING OFF)
 
 if(DEFINED CACHE{${LOCAL_PROJECT_SCOPE}_PROJECT_TESTING} AND ${LOCAL_PROJECT_SCOPE}_PROJECT_TESTING)
-	message(STATUS "${LOCAL_CMAKE_PROJECT_NAME} testing - enabled")
+	message(STATUS "${LOCAL_CMAKE_PROJECT_NAME} host-side testing - enabled")
 	set(UNIT_TESTING ON)
 	enable_testing()
+	add_subdirectory(3rdparty/googletest)
 else()
-	message(STATUS "${LOCAL_CMAKE_PROJECT_NAME} testing - disabled")
+	message(STATUS "${LOCAL_CMAKE_PROJECT_NAME} host-side testing - disabled")
+endif()
+
+if(DEFINED CACHE{${LOCAL_PROJECT_SCOPE}_PROJECT_BENCHMARK} AND ${LOCAL_PROJECT_SCOPE}_PROJECT_BENCHMARK)
+	message(STATUS "${LOCAL_CMAKE_PROJECT_NAME} host-side benchmarking - enabled")
+	set(BENCHMARKING ON)
+	add_subdirectory(3rdparty/benchmark)
+else()
+	message(STATUS "${LOCAL_CMAKE_PROJECT_NAME} host-side benchmarking - disabled")
 endif()
 
 
 #include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 
-if(UNIT_TESTING)
-	add_subdirectory(3rdparty/googletest)
-	add_subdirectory(3rdparty/benchmark)
+if(UNIT_TESTING OR BENCHMARKING)
 	add_subdirectory(tests/host)
 endif()
