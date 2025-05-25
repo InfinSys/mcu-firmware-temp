@@ -9,7 +9,7 @@
             "command": "cmake",
             "args": ["--preset", "win32-x64-Debug"],
             "options": {
-                "cwd": "${workspaceFolder}/tests/host/unit"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": ["$msCompile", "$gcc"],
             "group": "build"
@@ -22,7 +22,7 @@
             "command": "cmake",
             "args": ["--build", "build/win32-x64-Debug"],
             "options": {
-                "cwd": "${workspaceFolder}/tests/host/unit"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": ["$msCompile", "$gcc"],
             "group": "build",
