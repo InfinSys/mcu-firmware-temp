@@ -9,7 +9,8 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_C_COMPILER": "gcc.exe",
-                "CMAKE_CXX_COMPILER": "g++.exe"
+                "CMAKE_CXX_COMPILER": "g++.exe",
+                "DEMO_PROJECT_TESTING": "ON"
             }
         },
         {
